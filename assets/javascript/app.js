@@ -64,7 +64,7 @@ function startGame() {
 
     answerString += '</div></div>';
 
-    $('#questions').append('<div class="question">' + questionString + answerString + '</div></div></div>');
+    $('#questions').append('<div class="question">' + questionString + answerString + '</div></div>');
   }
 
 }
