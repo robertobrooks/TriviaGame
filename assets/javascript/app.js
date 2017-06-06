@@ -42,6 +42,7 @@ var questions = [{
 
 // On-Click Button 'Start'
 $('#start').on('click', function() {
+  $("#panel").show();
   $("#button").empty();
   countDown(60, "timer");
   startGame();
