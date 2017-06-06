@@ -1,0 +1,27 @@
+body {
+  width: 100%;
+}
+
+.wrapper {
+  margin: auto;
+  width: 960px;
+}
+
+.start-button {
+  display: block;
+  font-size: 32px;
+  margin: 24px auto;
+  padding: 12px;
+}
+
+.question-box {
+  padding: 24px;
+}
+
+.question {
+  margin-bottom: 24px;
+}
+
+.answer {
+  margin-left: 16px;
+}
