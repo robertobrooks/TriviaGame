@@ -4,21 +4,46 @@ var correct = 0;
 var unanswer = 0;
 var incorrect = 0;
 var questions = [{
-    question: "What island is named for the Spanish word for 'strange birds' or 'pelicans?",
-    answer: ["Hawaii", "Alcatraz", "Cuba", "Dominican"],
-    correctAnswer: "Alcatraz"
+    question: "The names of the four ghosts in Pac-Man are Inky, Blinky, Pinky, and ...?",
+    answer: ["Cherry", "Cyan", "Clyde", "Nappy"],
+    correctAnswer: "Clyde"
   },
   {
-    question: "What museum in Madrid features and extensive collections of works by Francisco de Goya?",
-    answer: ["Louvre", "Dali Theatre and Museum", "Prado", "Met"],
-    correctAnswer: "Prado"
+    question: "What game was originally named Jumpman?",
+    answer: ["Donkey Kong", "Pacman", "Frogger", "Dig Dug"],
+    correctAnswer: "Donkey Kong"
+  },
+  {
+    question: "What is the primary weapon of Doom?",
+    answer: ["BFG9000", "Fists", "Elven Wand", "Phoneix Rod"],
+    correctAnswer: "BFG9000"
+  },
+  {
+    question: "What game game was created by the company Taito in 1978?",
+    answer: ["Asteroids", "Space Invaders", "Pong", "Frogger"],
+    correctAnswer: "Space Invaders"
+  },
+  {
+    question: "What's Balrog's name in Street Fighter II - Japanese version?",
+    answer: ["Vega", "Blanka", "M. Bison", "Sagat"],
+    correctAnswer: "M. Bison"
+  },
+  {
+    question: "In 2010, what game became the most downloaded game of all time?",
+    answer: ["Minecraft", "Super Mario Bros.", "Tetris", "Mario Kart"],
+    correctAnswer: "Donkey Kong"
+  },
+  {
+    question: "How many Guinness World Records does Halo hold?",
+    answer: ["2", "3", "4", "5"],
+    correctAnswer: "5"
   },
 ];
 
 // On-Click Button 'Start'
 $('#start').on('click', function() {
   $("#button").empty();
-  countDown(5, "timer");
+  countDown(60, "timer");
   startGame();
 });
 
@@ -29,13 +54,17 @@ function startGame() {
 
   for (var i = 0; i < questions.length; i++) {
     var answerString = '';
-    questionString = '<div>' + (i + 1) + '. ' + questions[i].question + '</div>';
+    questionString = '<div class="panel">' + (i + 1) + '. ' + questions[i].question + '</div>';
+
+    answerString = '<div class="panel"><div class="col-xs-12"><div class="btn-group btn-group-vertical" data-toggle="buttons">';
 
     for (var j = 0; j < questions[i].answer.length; j++) {
-      answerString += '<input name="answer' + i + '" class="answer" type="radio" value="' + questions[i].answer[j] + '">' + questions[i].answer[j] + '</input>';
+      answerString += '<label class="btn"><input name="answer' + i + '" type="radio" value="' + questions[i].answer[j] + '"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span>' + questions[i].answer[j] + '</span></input></label>';
     }
 
-    $('#questions').append('<div class="question">' + questionString + answerString + '</div>');
+    answerString += '</div>';
+
+    $('#questions').append('<div class="question">' + questionString + answerString + '</div></div></div>');
   }
 
 }
@@ -44,7 +73,7 @@ function startGame() {
 function countDown(sec, el) {
 
   var element = document.getElementById(el);
-  element.innerHTML = "Time Remaining: " + sec + " seconds";
+  element.innerHTML = "<h3>Time Remaining: " + sec + " seconds</h3><hr>";
 
   if (sec < 1) {
     clearTimeout(timer);
