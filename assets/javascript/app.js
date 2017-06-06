@@ -1,6 +1,5 @@
 // Setting the variables first
-var answer1;
-var answer2;
+var answers = [];
 var correct = 0;
 var unanswer = 0;
 var incorrect = 0;
@@ -62,25 +61,20 @@ function countDown(sec, el) {
 function results() {
   document.getElementById('results').innerHTML = '<h2>All Done!</h2>';
 
-  answer1 = $("input[name='answer0']:checked").val();
-  answer2 = $("input[name='answer1']:checked").val();
-
-  if (answer1 === 'Alcatraz') {
-    correct++;
-  } else if (answer1 === undefined) {
-    unanswer++;
-  } else {
-    incorrect++;
+  for (i = 0; i < questions.length; i++) {
+    //Assign the value to the answer variables
+    answers[i] = $("input[name='answer" + i + "']:checked").val();
+    //Compare values to see if they're correct or unanswered
+    if (answers[i] === questions[i].correctAnswer) {
+      correct++;
+    } else if (answers[i] === undefined) {
+      unanswer++;
+    } else {
+      incorrect++;
+    }
   }
 
-  if (answer2 === 'Prado') {
-    correct++;
-  } else if (answer2 === undefined) {
-    unanswer++;
-  } else {
-    incorrect++;
-  }
-
+  // Display the results
   document.getElementById('results').innerHTML += '<div>Correct Answers: ' + correct + '</div>';
   document.getElementById('results').innerHTML += '<div>Incorrect Answers: ' + incorrect + '</div>';
   document.getElementById('results').innerHTML += '<div>Unanswered: ' + unanswer + '</div>';
