@@ -80,6 +80,7 @@ function countDown(sec, el) {
     clearTimeout(timer);
     $("#timer").hide();
     $("#questions").hide();
+    $("#panel").hide();
     return results();
   }
   sec--;
