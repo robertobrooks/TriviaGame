@@ -54,15 +54,15 @@ function startGame() {
 
   for (var i = 0; i < questions.length; i++) {
     var answerString = '';
-    questionString = '<div class="panel">' + (i + 1) + '. ' + questions[i].question + '</div>';
+    questionString = '<div class="panel"><div>' + (i + 1) + '. ' + questions[i].question + '</div>';
 
-    answerString = '<div class="panel"><div class="col-xs-12"><div class="btn-group btn-group-vertical" data-toggle="buttons">';
+    answerString = '<div"><div class="col-xs-12"><div class="btn-group btn-group-vertical" data-toggle="buttons">';
 
     for (var j = 0; j < questions[i].answer.length; j++) {
       answerString += '<label class="btn"><input name="answer' + i + '" type="radio" value="' + questions[i].answer[j] + '"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span>' + questions[i].answer[j] + '</span></input></label>';
     }
 
-    answerString += '</div>';
+    answerString += '</div></div>';
 
     $('#questions').append('<div class="question">' + questionString + answerString + '</div></div></div>');
   }
